@@ -1,0 +1,11 @@
+// user actions
+export const SET_ALL_CASES = 'SET_ALL_CASES';
+export const NEW_CASE_CREATED = 'NEW_CASE_CREATED';
+export const CASE_EDIT_INITIATED = 'CASE_EDIT_INITIATED';
+export const CASE_EDIT_DISCARDED = 'CASE_EDIT_DISCARDED';
+
+// notification
+export const CLEAR_CASE_UPDATE_NOTIFICATION = 'CLEAR_CASE_UPDATE_NOTIFICATION';
+
+// admin actions
+export const SET_ALL_PENDING_CASES = 'SET_ALL_PENDING_CASES';

@@ -1,0 +1,23 @@
+.case-list-div {
+    padding-top: 10px;
+}
+
+.case-table {
+    color: #545454;
+    border: 1px solid #e2e2e2;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.12);
+}
+
+.case-table th {
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.case-view-icon {
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+.filterDiv {
+    padding-left: 10px;
+}

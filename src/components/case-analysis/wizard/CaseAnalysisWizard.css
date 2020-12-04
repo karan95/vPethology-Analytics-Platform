@@ -1,0 +1,26 @@
+.case-wizard-div {
+    padding-top: 1rem;
+}
+
+.case-wizard-elements {
+    padding: 1rem 0.5rem;
+}
+
+.wizard-controls-group {
+    padding: 1rem;
+}
+.wizard-controls-group button {
+    margin-right: 0.5rem;
+}
+
+.darkgoldenrod {
+    color: darkgoldenrod;
+}
+
+.darkgreen {
+    color: darkgreen;
+}
+
+.hidden {
+    visibility: hidden;
+}

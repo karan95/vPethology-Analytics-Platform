@@ -1,0 +1,27 @@
+.custom-file-input {
+    cursor: pointer;
+}
+
+.uploaded-imgs {
+   padding-top: 1rem;
+}
+
+.card-body {
+    padding: 0!important;
+}
+
+.img-labels-section {
+    padding: 5px;
+}
+
+.image-label {
+    color: white;
+    background-color: dodgerblue;
+    border-radius: 5px;
+    padding: 2px 8px;
+    margin-right: 5px;
+}
+
+.remove-image-btn {
+    padding: 5px;
+}

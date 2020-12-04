@@ -1,0 +1,16 @@
+.navbar-nav li {
+    font-size: 20px;
+}
+
+.user-icon {
+    padding-right: 5px;
+}
+
+.logout-btn {
+    color: #007bff;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    color: #0056b3;
+}

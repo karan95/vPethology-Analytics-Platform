@@ -1,25 +1,53 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import {
+  BrowserRouter as Router
+} from "react-router-dom";
+import { connect } from "react-redux";
+import { Redirect } from 'react-router-dom';
+
+import AppRouter from "./router";
+import { isUserLoggedIn } from './redux/user/user.actions';
+
+class App extends React.Component {
+
+  isUserAuthIn() {
+    // check auth on re-render
+    if (!this.props.userInfo) {
+      return <Redirect to='/login' />
+    }
+  }
+
+  componentDidMount() {
+    if (!this.props.userInfo) {
+      // check for state on hard referesh
+      this.props.isUserLoggedIn();
+    }
+  }
+
+  render() {
+    return (
+      <Router>
+        <div className="App">
+          {this.isUserAuthIn()}
+          <AppRouter />
+        </div>
+      </Router>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    userInfo: state.user.userInfo,
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    isUserLoggedIn: () => dispatch(isUserLoggedIn())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
