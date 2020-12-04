@@ -1,4 +1,4 @@
-import { AUTHENTICATE, LOGOUT, INIT_LOGIN_CHECK } from './user.types';
+import { AUTHENTICATE, LOGOUT, INIT_LOGIN_CHECK, INVALID_LOGIN } from './user.types';
 import * as USER_API from '../../api/user';
 
 
@@ -32,12 +32,20 @@ export const authenticateUser = (data) => {
             .then((response) => response.json())
             .then((data) => {
                 dispatch(userAuthenticated(data));
+                dispatch(invalidLoginCredentials(''));
             })
             .catch(() => {
-                // error handling
+                dispatch(invalidLoginCredentials('Please enter valid login credentials.'));
             });
     };
 };
+
+export const invalidLoginCredentials = (payload) => {
+    return {
+        type: INVALID_LOGIN,
+        payload
+    };
+}
 
 export const isUserLoggedIn = () => {
     return {

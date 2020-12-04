@@ -1,7 +1,8 @@
-import { AUTHENTICATE, LOGOUT, INIT_LOGIN_CHECK } from './user.types';
+import { AUTHENTICATE, LOGOUT, INIT_LOGIN_CHECK, INVALID_LOGIN } from './user.types';
 
 const INITIAL_STATE = {
-    userInfo: null
+    userInfo: null,
+    inValidUserMessage: ''
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -19,6 +20,12 @@ const reducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 userInfo: action.payload
+           };
+        }
+        case INVALID_LOGIN: {
+            return {
+                ...state,
+                inValidUserMessage: action.payload
            };
         }
         case LOGOUT:

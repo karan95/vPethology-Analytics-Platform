@@ -52,15 +52,13 @@ class Login extends React.Component {
     signupUser = () => {
         this.props.createUserAccount({ username: this.state.signup_username, name: this.state.signup_name, password: this.state.signup_password2});
         // reverting state
-        this.setState({
-            INIT_STATE
-        });
+        this.setState(INIT_STATE);
     }
 
     renderRedirect() {
         if (this.props.userInfo) {
             return <Redirect to='/' />
-          }
+        }
     }
 
     componentDidMount() {
@@ -85,6 +83,7 @@ class Login extends React.Component {
         </div>
         <div className="form-group">
             <p className="text-center">By signing up you accept our Terms Of Use</p>
+            {this.props.inValidUserMessage && <p className="error-message">{this.props.inValidUserMessage}</p>}
         </div>
         <div className="col-md-12 text-center ">
             <button type="submit" onClick={() => this.validateUser()} disabled={this.state.username.trim().length < 3 || this.state.password.trim().length < 5} className=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
@@ -154,13 +153,14 @@ class Login extends React.Component {
 const mapStateToProps = state => {
     return {
       userInfo: state.user.userInfo,
+      inValidUserMessage: state.user.inValidUserMessage
     }
 }
   
 const mapDispatchToProps = dispatch => {
     return {
       authenticateUser: (user) => dispatch(authenticateUser(user)),
-      createUserAccount: (newUser) => dispatch(createUserAccount(newUser))
+      createUserAccount: (newUser) => dispatch(createUserAccount(newUser)),
     }
 }
 
