@@ -3,7 +3,13 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './rootReducer';
 // thunk and redux dev tools
-const enhancers = [applyMiddleware(thunk), composeWithDevTools()];
+
+const isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+const enhancers = [
+    applyMiddleware(thunk)
+];
+
+if (isChrome) enhancers.push(composeWithDevTools());
 
 const store = createStore(
     rootReducer,
